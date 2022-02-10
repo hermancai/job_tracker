@@ -1,9 +1,14 @@
 const express = require("express");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.json({ status: 200 });
+});
+
 app.use("/account", require("./routes/account"));
 app.use("/posting", require("./routes/posting"));
 app.use("/postings", require("./routes/postings"));
